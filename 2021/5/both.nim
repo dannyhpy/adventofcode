@@ -10,7 +10,7 @@ type
   Grid = TableRef[Point, int]
 
   HydrothermalVent = object
-    x1, x2, y1, y2: int
+    x1, y1, x2, y2: int
 
   Point = object
     x, y: int
@@ -33,11 +33,10 @@ proc hash(p: Point): Hash =
     else: A + B * B
 
 proc getPoints(v: HydrothermalVent): seq[Point] =
-  let xd = max(v.x1, v.x2) - min(v.x1, v.x2)
-  let yd = max(v.y1, v.y2) - min(v.y1, v.y2)
-  when defined(second):
-    let xoffset = v.x2 - v.x1
-    let yoffset = v.y2 - v.y1
+  let xOffset = v.x2 - v.x1
+  let yOffset = v.y2 - v.y1
+  let xd = xOffset.abs()
+  let yd = yOffset.abs()
 
   if xd != 0 and v.y1 == v.y2:
     for i in 0 .. xd:
@@ -49,20 +48,17 @@ proc getPoints(v: HydrothermalVent): seq[Point] =
 
   else:
     when defined(second):
-      # TODO:
-      if xoffset < 0:
-        for i in 0 .. xd:
-          result.add Point(
-            x: min(v.x1, v.x2) + i,
-            y: max(v.y1, v.y2) - i
-          )
-      
-      else:
-        for i in 0 .. yd:
-          result.add Point(
-            x: max(v.x1, v.x2) + i,
-            y: min(v.y1, v.y2) + i
-          )
+      assert xd == yd
+
+      for i in 0 .. xd:
+        result.add Point(
+          x:
+            if xOffset > 0: min(v.x1, v.x2) + i
+            else: max(v.x1, v.x2) - i,
+          y:
+            if yOffset > 0: min(v.y1, v.y2) + i
+            else: max(v.y1, v.y2) - i
+        )
   
 proc parseInput(input: string): seq[HydrothermalVent] = 
   for line in input.splitLines()[0 .. ^2]:
@@ -71,11 +67,6 @@ proc parseInput(input: string): seq[HydrothermalVent] =
       x1: coords[0][0], y1: coords[0][1], x2: coords[1][0], y2: coords[1][1] 
     )
     
-static:
-  let dummyVent = HydrothermalVent(x1: 9, y1: 7, x2: 7, y2: 9)
-  for point in dummyVent.getPoints():
-    echo $point
-  
 let input = adventofcode.getInput(2021, 5)
 let vents = input.parseInput()
 let grid = Grid()

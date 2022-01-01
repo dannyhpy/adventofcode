@@ -8,17 +8,25 @@ let lines = input.splitLines()[0 .. ^2]
 
 var horizontalPosition = 0
 var depth = 0
-var aim = 0
+when defined(second):
+  var aim = 0
 
 for line in lines:
   var command = line.split(" ")
   case command[0]:
     of "forward":
       horizontalPosition += command[1].parseInt()
-      depth += aim * command[1].parseInt()
+      when defined(second):
+        depth += aim * command[1].parseInt()
     of "up":
-      aim -= command[1].parseInt()
+      when defined(second):
+        aim -= command[1].parseInt()
+      else:
+        depth -= command[1].parseInt()
     of "down":
-      aim += command[1].parseInt()
+      when defined(second):
+        aim += command[1].parseInt()
+      else:
+        depth += command[1].parseInt()
 
 echo fmt"Answer: {horizontalPosition * depth}"

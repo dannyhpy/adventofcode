@@ -3,17 +3,18 @@ import
   os,
   strformat
   
-let session = os.getEnv("SESSION")
-if session == "":
-  echo "Missing SESSION environment variable."
-  quit 1
-
 proc getInput*(year, day: int): string =
   try:
     let input = readFile(getCurrentDir() / "input.txt")
     
     return input
   except IOError:
+    echo "adventofcode> Missing input.txt. Downloading..."
+    let session = os.getEnv("SESSION")
+    if session == "":
+      echo "adventofcode> Unable to download without the SESSION environment variable."
+      quit 1
+
     let client = newHttpClient()
     client.headers = newHttpHeaders({ "Cookie": fmt"session={session}" })
 
