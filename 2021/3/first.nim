@@ -5,7 +5,7 @@ import
   strformat
 
 let input = adventofcode.getInput(2021, 3)
-let lines = input.splitLines()[0 .. ^2]
+let lines = input.splitLines()
 
 var gammaRateBinary = ""
 var epsilonRateBinary = ""

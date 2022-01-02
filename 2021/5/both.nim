@@ -61,7 +61,7 @@ proc getPoints(v: HydrothermalVent): seq[Point] =
         )
   
 proc parseInput(input: string): seq[HydrothermalVent] = 
-  for line in input.splitLines()[0 .. ^2]:
+  for line in input.splitLines():
     let coords = line.split(" -> ").mapIt(it.split(",").mapIt(it.parseInt()))
     result.add HydrothermalVent(
       x1: coords[0][0], y1: coords[0][1], x2: coords[1][0], y2: coords[1][1] 

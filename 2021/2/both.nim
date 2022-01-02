@@ -4,7 +4,7 @@ import
   strformat
 
 let input = adventofcode.getInput(2021, 2)
-let lines = input.splitLines()[0 .. ^2]
+let lines = input.splitLines()
 
 var horizontalPosition = 0
 var depth = 0

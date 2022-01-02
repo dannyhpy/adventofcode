@@ -5,7 +5,7 @@ import
   strutils
 
 let input = adventofcode.getInput(2021, 1)
-let lines = input.splitLines()[0 .. ^2].mapIt(it.parseInt())
+let lines = input.splitLines().mapIt(it.parseInt())
 
 var depths = 0
 var prevSum = lines[0] + lines[1] + lines[2]

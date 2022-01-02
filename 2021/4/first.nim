@@ -9,7 +9,7 @@ import
   x/board
   
 let input = adventofcode.getInput(2021, 4)
-let lines = input.splitLines()[0 .. ^2]
+let lines = input.splitLines()
 
 let drawn = lines[0].split(",").mapIt(it.parseInt())
 var currentlyDrawn: seq[int] = @[]

@@ -10,7 +10,6 @@ type
   Cycle = int
 
 let input = adventofcode.getInput(2021, 6)
-let inputLine = input.splitLines()[0]
 
 var days = 0
 var fishes: Table[Cycle, int]
@@ -18,7 +17,7 @@ for i in 0 .. 8:
   fishes[i] = 0
 
 proc parseInput() =
-  let cycles = inputLine.split(",").mapIt(it.parseInt())
+  let cycles = input.split(",").mapIt(it.parseInt())
   for cycle in cycles:
     fishes[cycle] += 1
 

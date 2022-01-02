@@ -1,13 +1,14 @@
 import
   httpclient,
   os,
-  strformat
+  strformat,
+  strutils
   
 proc getInput*(year, day: int): string =
   try:
     let input = readFile(getCurrentDir() / "input.txt")
     
-    return input
+    return input.strip(chars = {'\n'})
   except IOError:
     echo "adventofcode> Missing input.txt. Downloading..."
     let session = os.getEnv("SESSION")
@@ -22,4 +23,4 @@ proc getInput*(year, day: int): string =
     
     writeFile(getCurrentDir() / "input.txt", input)
     
-    return input
+    return input.strip(chars = {'\n'})
