@@ -1,10 +1,12 @@
 import
-  ../../adventofcode,
-  math,
-  sequtils,
-  strutils,
-  strformat,
-  tables
+  std/math,
+  std/sequtils,
+  std/strformat,
+  std/strutils,
+  std/tables
+
+import
+  ../../adventofcode
   
 type
   Cycle = int
@@ -43,7 +45,7 @@ proc newDay() =
     fishes[cycle] += temporaryBox[cycle]
       
 when isMainModule:
-  const simulateDays =
+  const simulateDays = block:
     when defined(second): 256
     else: 80
 

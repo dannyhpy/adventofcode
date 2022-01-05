@@ -1,10 +1,12 @@
 import
-  ../../adventofcode,
-  hashes,
-  sequtils,
-  strutils,
-  strformat,
-  tables
+  std/hashes,
+  std/sequtils,
+  std/strformat,
+  std/strutils,
+  std/tables
+
+import
+  ../../adventofcode
 
 type
   Grid = TableRef[Point, int]
@@ -22,10 +24,10 @@ B = b >= 0 ? 2 * b : -2 * b - 1;
 A >= B ? A * A + A + B : A + B * B;
 ]#
 proc hash(p: Point): Hash =
-  let A =
+  let A = block:
     if p.x >= 0: 2 * p.x
     else: -2 * p.x - 1
-  let B =
+  let B = block:
     if p.y >= 0: 2 * p.y
     else: -2 * p.y - 1
   return

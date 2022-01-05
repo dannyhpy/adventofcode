@@ -1,12 +1,12 @@
 import
-  ../../adventofcode,
-  math,
-  sequtils,
-  strutils,
-  strformat
-  
+  std/math,
+  std/sequtils,
+  std/strformat,
+  std/strutils
+
 import
-  x/board
+  ../../adventofcode,
+  ./x/board
   
 let input = adventofcode.getInput(2021, 4)
 let lines = input.splitLines()

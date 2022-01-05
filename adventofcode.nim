@@ -1,8 +1,8 @@
 import
-  httpclient,
-  os,
-  strformat,
-  strutils
+  std/httpclient,
+  std/os,
+  std/strformat,
+  std/strutils
   
 proc getInput*(year, day: int): string =
   try:

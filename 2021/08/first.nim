@@ -1,10 +1,12 @@
 import
-  ../../adventofcode,
-  math,
-  sequtils,
-  strformat,
-  strutils,
-  tables
+  std/math,
+  std/sequtils,
+  std/strformat,
+  std/strutils,
+  std/tables
+
+import
+  ../../adventofcode
 
 let lines = adventofcode.getInput(2021, 8).splitLines()
 var decodedDigits = newTable[int, int]()

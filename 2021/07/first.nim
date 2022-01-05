@@ -1,9 +1,11 @@
 import
-  ../../adventofcode,
-  options,
-  sequtils,
-  strformat,
-  strutils
+  std/options,
+  std/sequtils,
+  std/strformat,
+  std/strutils
+
+import
+  ../../adventofcode
   
 let input = adventofcode.getInput(2021, 7)[0 .. ^2]
 #let input = "16,1,2,0,4,2,7,1,2,14" # Example given

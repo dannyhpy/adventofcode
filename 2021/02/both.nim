@@ -1,7 +1,9 @@
 import
-  ../../adventofcode,
-  strutils,
-  strformat
+  std/strformat,
+  std/strutils
+
+import
+  ../../adventofcode
 
 let input = adventofcode.getInput(2021, 2)
 let lines = input.splitLines()

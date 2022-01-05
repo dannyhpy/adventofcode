@@ -1,8 +1,10 @@
 import
-  ../../adventofcode,
-  sequtils,
-  strformat,
-  strutils
+  std/sequtils,
+  std/strformat,
+  std/strutils
+
+import
+  ../../adventofcode
 
 let input = adventofcode.getInput(2021, 1)
 let lines = input.splitLines().mapIt(it.parseInt())

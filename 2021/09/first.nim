@@ -1,10 +1,12 @@
 import
-  ../../adventofcode,
-  math,
-  options,
-  sequtils,
-  strformat,
-  strutils
+  std/math,
+  std/options,
+  std/sequtils,
+  std/strformat,
+  std/strutils
+
+import
+  ../../adventofcode
   
 type
   Grid = seq[seq[int]]
