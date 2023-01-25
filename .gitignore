@@ -1,2 +1,7 @@
+# binaries
+**/first
+**/second
+**/both
+
 # input files
-input.txt
+**/input.txt
