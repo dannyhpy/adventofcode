@@ -1,7 +1,13 @@
 # binaries
 **/first
+**/first.exe
 **/second
+**/second.exe
 **/both
+**/both.exe
 
 # input files
 **/input.txt
+
+# session.key
+session.key
